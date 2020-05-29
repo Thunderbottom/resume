@@ -1,0 +1,81 @@
+\documentclass[10pt]{article}
+\usepackage[left=0.5in, right=0.5in, top=0.3in, bottom=0.3in]{geometry}
+\usepackage{longtable}
+\usepackage{fontawesome}
+\usepackage[xetex,
+            unicode,
+            pdfencoding=auto,
+            pdfinfo={
+              Title={thunderbottom/resume},
+              Author={Chinmay D. Pai},
+              Subject={Chinmay D. Pai Résumé},
+              Keywords={devops, site reliability engineering, software engineer, functional programming, web development, system administration, python, docker, kubernetes, ansible, linux, unix, ci, cd},
+              Producer={xelatex},
+              Creator{xelatex}
+            },
+            ]{hyperref}
+
+\include{functions}
+\include{content}
+
+\setlength{\columnsep}{0pt}
+
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+\hyphenpenalty=10000
+
+\begin{document}
+\pagestyle{empty}
+
+\makecvheader
+
+\vspace{-1.5em}
+\section{Experience}
+\vspace{0.75em}
+\frappe
+\vspace{-1.5em}
+
+\section{Personal \& Open Source Projects}
+\vspace{0.75em}
+\newcommand{\proj}[3]{
+  \begin{adjustwidth}{0.75in}{}
+    \begin{sideblock}
+      \begin{textblock*}{0.5in}(-0.75in,0.65em)
+        \textsc{#1}
+      \end{textblock*}
+      \small{#2}\\
+      \href{https://#3}{#3}
+    \end{sideblock}
+  \end{adjustwidth}
+  \vspace{\baselineskip}
+}
+\pyroxmox
+\ultimatebrowser
+
+\vspace{-1.5em}
+\section{Education}
+\newcommand{\degree}[9]{\textsc{#1} & \textbf{#2} & \textsc{#5} & \textbf{#6}\\}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l p{6.5cm} r}
+  \beDegree
+\end{tabular*}
+\vspace{-1.5em}
+
+\section{Skills \& Proficiencies}
+\vspace{-0.75em}
+\newcommand{\skillset}[2]{
+\textsc{#1} & \small{#2}\\
+  \multicolumn{2}{l}{} \\ [-1.5ex]
+}
+\begin{longtable}[l]{@{}p{2cm}|p{16.5cm}}
+  \skillset{Languages}{\languages}
+  \skillset{DevOps}{\devops}
+  \skillset{Frameworks}{\frameworks}
+\end{longtable}
+\vspace{-1.5em}
+
+\section{Extracurricular Activities \& Interests}
+\activities
+
+%%\XeTeXpdffile ''resume.pdf'' page 1 scaled 800
+
+\end{document}

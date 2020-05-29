@@ -1,0 +1,264 @@
+\usepackage{bibunits}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{textpos}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xstring}
+\usepackage{xunicode,xltxtra,url,parskip}
+\usepackage{xifthen}
+
+%Setup hyperref package, and colours for links
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%Color
+\definecolor{lightg}{HTML}{999999}
+\definecolor{medg}{HTML}{666666}
+\definecolor{darkg}{HTML}{333333}
+
+%Experience section
+\newenvironment{exlist}
+{\begin{itemize}[
+    leftmargin=1.5em,
+    topsep=-0.5em,
+    itemsep=0pt,
+    parsep=0.5ex,
+    partopsep=0pt,
+    ]
+  \renewcommand\labelitemi{---}}
+  {\end{itemize}}
+
+  \newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftmargin=-1ex,
+  rightmargin=0,
+  skipabove=0,
+  skipbelow=0,
+  innerrightmargin=0,
+  innerleftmargin=1ex,
+  innertopmargin=0,
+  innerbottommargin=0
+  ]{sideblock}
+
+  \newcommand{\experience}[5]{
+    \begin{adjustwidth}{0.75in}{}
+      \begin{sideblock}
+        \begin{textblock*}{1in}(-0.75in,0.65em)
+          \textsc{#1}
+        \end{textblock*}
+        \textbf{#2} #3 \textsc{#4}
+        \vspace{-1ex}
+
+        \small{#5}
+      \end{sideblock}
+    \end{adjustwidth}
+    \vspace{\baselineskip}
+  }
+
+  % Bullets
+  \definecolor{noteone}{HTML}{999999}
+  \definecolor{notetwo}{HTML}{848484}
+  \definecolor{notethree}{HTML}{424242}
+  \definecolor{notefour}{HTML}{212121}
+  \definecolor{notefive}{HTML}{000000}
+
+  \newcommand{\fivenotes}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{notetwo}{\symbol{"2022}}
+    \textcolor{notethree}{\symbol{"2022}}
+    \textcolor{notefour}{\symbol{"2022}}
+    \textcolor{notefive}{\symbol{"2022}}
+  }
+  \newcommand{\fournotes}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{notetwo}{\symbol{"2022}}
+    \textcolor{notethree}{\symbol{"2022}}
+    \textcolor{notefour}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+  }
+  \newcommand{\threenotes}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{notetwo}{\symbol{"2022}}
+    \textcolor{notethree}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+  }
+  \newcommand{\twonotes}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{notetwo}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+  }
+  \newcommand{\onenote}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+  }
+
+  \newcommand{\oneskill}{%
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{notefive}{\symbol{"2022}}
+  }
+
+  \newcommand{\twoskill}{%
+    \textcolor{white}{\symbol{"2022}}
+    \textcolor{notethree}{\symbol{"2022}}
+    \textcolor{notefive}{\symbol{"2022}}
+  }
+
+  \newcommand{\threeskill}{%
+    \textcolor{noteone}{\symbol{"2022}}
+    \textcolor{notethree}{\symbol{"2022}}
+    \textcolor{notefive}{\symbol{"2022}}
+  }
+
+  %FONTS
+  % \defaultfontfeatures{Mapping=tex-text}
+  % \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+
+  \setromanfont [Ligatures={Common}, BoldFont={Linux Libertine O Bold}, ItalicFont={Linux Libertine O Italic}]{Linux Libertine O}
+  \setsansfont [Ligatures={Common}, BoldFont={GeosansLight}, ItalicFont={GeosansLight}]{GeosansLight}
+  \setmonofont{GeosansLight}
+
+  \font\lighttext=''LibreBaskerville-Regular:color=787878'' at 10pt
+  \font\lighttextweb=''LibreBaskerville-Regular:color=FF1493'' at 10pt
+
+  %CV Sections inspired by:
+  %http://stefano.italians.nl/archives/26
+  \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+  %% \titlespacing{\section}{0pt}{-2pt}{0pt}
+
+  %-------------WATERMARK TEST [**not part of a CV**]---------------
+  \TPGrid[30mm,30mm]{30}{60}
+  %\setlength{\TPHorizModule}{30mm}
+  %\setlength{\TPVertModule}{\TPHorizModule}
+  %\textblockorigin{2mm}{0.65\paperheight}
+  \setlength{\parindent}{0pt}
+
+  \newcommand{\skill}{\textbf}
+  \newcommand{\skills}[2]{
+  \item #2 #1
+  }
+
+  \newcommand{\institution}{\textsc}
+
+  % \def\bullet{\textcolor{medg}{\symbol{"00BB}}}
+  \def\div{\,\textbar{}\,}
+
+  \usepackage{xspace}
+
+  % language macros
+
+  \newcommand{\lang}[2]{\expandafter\def\csname #1\endcsname{\skill{#2}\xspace}}
+
+  \lang{android}{Android}
+  \lang{backbone}{Backbone.js}
+  \lang{bash}{Bash}
+  \lang{cascalog}{Cascalog}
+  \lang{ccpp}{C/C++}
+  \lang{clojure}{Clojure}
+  \lang{cpp}{C++}
+  \lang{csh}{C\#}
+  \lang{c}{C}
+  \lang{django}{Django}
+  \lang{git}{git}
+  \lang{hadoop}{Hadoop}
+  \lang{haskell}{Haskell}
+  \lang{hive}{Hive}
+  \lang{html}{HTML/CSS}
+  \lang{java}{Java}
+  \lang{jquery}{jQuery}
+  \lang{js}{JavaScript}
+  \lang{linux}{Linux}
+  \lang{matlab}{MATLAB}
+  \lang{numpy}{NumPy}
+  \lang{opencv}{OpenCV}
+  \lang{php}{PHP}
+  \lang{postgres}{PostgreSQL}
+  \lang{python}{Python}
+  \lang{ruby}{Ruby}
+  \lang{salesforce}{Salesforce}
+  \lang{scala}{Scala}
+  \lang{scheme}{Scheme}
+  \lang{scipy}{SciPy}
+  \lang{spark}{Spark}
+  \lang{sql}{SQL}
+  \lang{visb}{Visual Basic}
+
+  \makeatletter
+  \newcommand{\github}[1]{\def\@github{#1}}
+  \newcommand{\mobile}[1]{\def\@mobile{#1}}
+  \newcommand{\email}[1]{\def\@email{#1}}
+  \newcommand{\linkedin}[1]{\def\@linkedin{#1}}
+  \newcommand{\homepage}[1]{\def\@homepage{#1}}
+
+  \newcommand{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em} #1}}
+  \newcommand{\headersocialsep}[1][\textbar\quad]{\def\@headersocialsep{#1}}
+  \headersocialsep
+
+  \newcommand{\makecvheader}{
+    \par{\centering {\Huge Chinmay D. Pai}\\
+      \vspace{0.75em}
+      \headersocialstyle{
+        \newbool{isstart}
+        \setbool{isstart}{true}
+        \ifthenelse{\isundefined{\@mobile}}
+        {}
+        {
+          \href{tel:\@mobile}{\faMobile\ \@mobile}
+          \setbool{isstart}{false}
+        }
+        \ifthenelse{\isundefined{\@email}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+            {\@headersocialsep}
+            \href{mailto:\@email}{\faEnvelope\ \@email}
+          }
+          \ifthenelse{\isundefined{\@homepage}}
+          {}
+          {
+            \ifbool{isstart}
+              {
+                \setbool{isstart}{false}
+              }
+              {\@headersocialsep}
+              \href{https://\@homepage}{\faHome\ \@homepage}
+            }
+            \ifthenelse{\isundefined{\@github}}
+            {}
+            {
+              \ifbool{isstart}
+                {
+                  \setbool{isstart}{false}
+                }
+                {\@headersocialsep}
+                \href{https://github.com/\@github}{\faGithubSquare\ \@github}
+              }
+              \ifthenelse{\isundefined{\@linkedin}}
+              {}
+              {
+                \ifbool{isstart}
+                  {
+                    \setbool{isstart}{false}
+                  }
+                  {\@headersocialsep}
+                  \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}
+                }
+              }
+            \bigskip\par}
+          }
+          \makeatother
